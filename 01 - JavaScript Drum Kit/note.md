@@ -23,12 +23,11 @@ HTML
 	    console.log(e);
 	});
 
-会得到一个KeyboardEvent，其中的一个属性为KeyCode: 65。
-通过这里的data-key将按键与音乐__“绑定”__。
+会得到一个KeyboardEvent，其中的一个属性为KeyCode: 65。通过这里的data-key将按键与音乐**“绑定”**。
 
 > [HTML音频](http://www.w3school.com.cn/html/html_audio.asp)
 
-<audio> 元素是一个 HTML5 元素，在 HTML 4 中是非法的，但在所有浏览器中都有效
+`<audio>`元素是一个 HTML5 元素，在 HTML 4 中是非法的，但在所有浏览器中都有效。
 
 CSS
 ---
@@ -40,8 +39,7 @@ CSS
       background-size: cover;
     }
 
-把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。
-背景图像的某些部分也许无法显示在背景定位区域中。
+把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。背景图像的某些部分也许无法显示在背景定位区域中。
 
 > [Flex 布局教程：语法篇](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
 
