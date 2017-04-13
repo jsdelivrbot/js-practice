@@ -23,7 +23,7 @@ HTML
 	    console.log(e);
 	});
 
-会得到一个KeyboardEvent，其中的一个属性为KeyCode: 65。通过这里的data-key将按键与音乐**“绑定”**。
+会得到一个KeyboardEvent，其中的一个属性为KeyCode: 65。通过这里的data-key将按键与音乐**绑定**。
 
 > [HTML音频](http://www.w3school.com.cn/html/html_audio.asp)
 
@@ -59,18 +59,25 @@ CSS
     }
 
 + flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。
+
   如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。
 
 + vh: 视窗高度，100vh即100%的高度。
+
   vw：视窗宽度。
+  
   vmin：vh和vw中较小的那一个。
+  
   vmax：vh和vw中较大的那一个。
 
 + px：固定长度的长度单位。
+
   em: 相对于父元素计算的长度单位。
-  rem：相对于根元素<html>计算的长度单位，本例中设置为10px。
+  
+  rem：相对于根元素`<html>`计算的长度单位，本例中设置为10px。
 
 + align-items：定义项目在交叉轴上如何对齐（可以理解为y轴的方向）。
+
   justify-content：定义了项目在主轴上的对齐方式（可以理解为x轴的方向）。
 
 在本例中，可以在`key`的属性中设置`flex: 1;`，所有的按键会平均占用整个x轴方向的位置。这样就不用设置每个按键的宽度。
