@@ -9,10 +9,10 @@ CSS
 ```css
 .clock {
   ...
-  margin:50px auto; // 居中
+  margin:50px auto; /* 居中 */
   position: relative;
   padding:2rem;
-  box-shadow: // 多重阴影，用逗号隔开
+  box-shadow: /* 多重阴影，用逗号隔开 */
     0 0 0 4px rgba(0,0,0,0.1),
     inset 0 0 0 3px #EFEFEF,
     inset 0 0 10px black,
@@ -21,14 +21,14 @@ CSS
 
 .clock-face {
   ...
-  transform: translateY(-3px); // 指针初始为横向，指向9点，高度（厚度）为6px，需要向下3px来居中对齐。
+  transform: translateY(-3px); /* 指针初始为横向，指向9点，高度（厚度）为6px，需要向下3px来居中对齐 */
 }
 ```
 
 > [CSS3 transform-origin 属性](http://www.w3school.com.cn/cssref/pr_transform-origin.asp)
 
 ```css
-hand {
+.hand {
   ...
   transform-origin: 100%;
   transform: rotate(90deg);
