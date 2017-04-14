@@ -16,6 +16,7 @@ CSS
 ---
 
 > [:root](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:root)
+
 > [使用CSS变量](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_variables)
 
 ```css
