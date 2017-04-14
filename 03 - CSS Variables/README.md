@@ -9,6 +9,7 @@ HTML
 ```js
 <label for="spacing">Spacing:</label>
 <input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+```js
 
 for 属性规定 label 与哪个表单元素绑定。
 
