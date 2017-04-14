@@ -1015,105 +1015,34 @@ body .markdown-body
   }
 }
 </style><title>README</title></head><body><article class="markdown-body"><h1 id="note"><a name="user-content-note" href="#note" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Note</h1>
+<h2 id="html"><a name="user-content-html" href="#html" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>HTML</h2>
 <blockquote>
-<p><a href="https://wispamulet.github.io/js30-practice/02%20-%20JS%20and%20CSS%20clock/index.html">预览效果</a></p>
+<p><a href="http://www.w3school.com.cn/tags/tag_label.asp">HTML <label> 标签</a></p>
 </blockquote>
+<p>```js<br />
+<label for="spacing">Spacing:</label><br />
+<input id="spacing" type="range" name="spacing" min="10" max="200" value="10" data-sizing="px"></p>
+<p>for 属性规定 label 与哪个表单元素绑定。</p>
 <h2 id="css"><a name="user-content-css" href="#css" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CSS</h2>
-<pre><code>.clock {
-  ...
-  margin:50px auto; // 居中
-  position: relative;
-  padding:2rem;
-  box-shadow: // 多重阴影，用逗号隔开
-    0 0 0 4px rgba(0,0,0,0.1),
-    inset 0 0 0 3px #EFEFEF,
-    inset 0 0 10px black,
-    0 0 10px rgba(0,0,0,0.2);
-}
-
-.clock-face {
-  ...
-  transform: translateY(-3px); // 指针初始为横向，指向9点，高度（厚度）为6px，需要向下3px来居中对齐。
-}
-</code></pre>
 <blockquote>
-<p><a href="http://www.w3school.com.cn/cssref/pr_transform-origin.asp">CSS3 transform-origin 属性</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/:root">:root</a><br />
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_variables">使用CSS变量</a></p>
 </blockquote>
-<pre><code>hand {
-  ...
-  transform-origin: 100%;
-  transform: rotate(90deg);
-  transition: all 0.05s;
-  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+<pre><code>:root {
+  --base: #ffc600;
+  --spacing: 10px;
+  --blur: 10px;
 }
 </code></pre>
-<p><code>transform-origin: ...;</code>改变被转换元素的位置。默认为50%。<br />
-<code>transform: rotate(90deg);</code>将指针旋转90度指向12点位置，即时刻的起始位置。<br />
-<code>transition: all 0.5s;</code>让指针的旋转看上去更自然。<br />
-<code>transition-timing-function: ...;</code>允许过渡效果随着时间来改变其速度。可以在chrome开发者工具中预览。</p>
-<h2 id="js"><a name="user-content-js" href="#js" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>JS</h2>
-<blockquote>
-<p><a href="http://www.w3school.com.cn/jsref/met_win_setinterval.asp">HTML DOM setInterval() 方法</a></p>
-</blockquote>
-<pre><code>setInterval(setDate, 1000);
-</code></pre>
-<p>setInterval() 方法可按照指定的周期（以毫秒计）来调用函数或计算表达式。</p>
-<pre><code>const now = new Date();
-
-const seconds = now.getSeconds();
-const mins = now.getMinutes();
-const hours = now.getHours();
-</code></pre>
-<p>先获得需要的小时，分钟和秒数。</p>
-<pre><code>const secondsDegrees = (seconds / 60) * 360 + 90;
-const minsDegrees = (mins / 60) * 360 + (seconds / 60) * 6 + 90;
-const hoursDegrees = (hours / 12) * 360 + (mins / 60) * 30 + 90;
-</code></pre>
-<p>将秒数转换为度数，在css中事先旋转了90度，因此还要加上90。分钟和小时同理。</p>
-<pre><code>const secondHand = document.querySelector('.second-hand');
-const minHand = document.querySelector('.min-hand');
-const hourHand = document.querySelector('.hour-hand');
-
-secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-minHand.style.transform = `rotate(${minsDegrees}deg)`;
-hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
-</code></pre>
-<p>然后再应用在对应的元素上。</p>
-<pre><code>if (secondsDegrees === 90) {
-  secondHand.style.transition = 'all 0s';
-} else {
-  secondHand.style.transition = 'all 0.05s';
-  secondHand.style.transitionTimingFunction = 'cubic-bezier(0.1, 2.7, 0.58, 1)';
+<p>声明全局CSS变量时:root很有用。</p>
+<pre><code>img {
+  padding: var(--spacing);
+  background: var(--base);
+  filter: blur(var(--blur));
+}
+.hl {
+  color: var(--base);
 }
 </code></pre>
-<p>当指针从59到0时，度数会突然发生变化，因为<code>transition: all 0.05s;</code>的原因，指针会突然回弹然后恢复正常。<br />
-为了避免这样可以添加以上代码，在指针回到初始位置时把<code>transition</code>的时间设置为0。</p>
-<p><strong>更好的办法</strong></p>
-<blockquote>
-<p><a href="https://wispamulet.github.io/js30-practice/02%20-%20JS%20and%20CSS%20clock/index02.html">预览效果</a></p>
-</blockquote>
-<p>将获取初始时间和更新时间分离，在更新函数中自增对应的度数。</p>
-<pre><code>var secondsDegrees = 0;
-
-function initDate() {
-  const now = new Date();
-
-  const seconds = now.getSeconds(); // 获取秒数
-  // console.log(seconds);
-  secondsDegrees = (seconds / 60) * 360 + 90; // 转换为度数
-  ...
-}
-
-function updateDate() {
-  const secondHand = document.querySelector('.second-hand'); // 获取秒针对应的元素
-  ...
-
-  // console.log(secondsDegrees);
-  secondHand.style.transform = `rotate(${secondsDegrees}deg)`; // 将实时的度数应用与秒针的指向
-  secondsDegrees += (1 / 60) * 360; // 秒针每秒增加6度
-
- ...
-}
-
-setInterval(updateDate, 1000);
-</code></pre></article></body></html>
+<p>像这样使用CSS变量。</p>
+<h2 id="js"><a name="user-content-js" href="#js" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>JS</h2></article></body></html>
