@@ -17,8 +17,6 @@ CSS
 
 > [:root](https://developer.mozilla.org/zh-CN/docs/Web/CSS/:root)
 
-> [使用CSS变量](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_variables)
-
 ```css
 :root {
   --base: #ffc600;
@@ -27,6 +25,8 @@ CSS
 }
 ```
 声明全局CSS变量时:root很有用。
+
+> [使用CSS变量](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Using_CSS_variables)
 
 ```css
 img {
