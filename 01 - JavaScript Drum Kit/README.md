@@ -10,20 +10,24 @@ HTML
 
 使用 data-* 属性来嵌入自定义数据。
 
-    <div data-key="65" class="key">
-      <kbd>A</kbd>
-      <span class="sound">clap</span>
-    </div>
+```html
+<div data-key="65" class="key">
+  <kbd>A</kbd>
+  <span class="sound">clap</span>
+</div>
 
-    <audio data-key="65" src="sounds/clap.wav"></audio>
+<audio data-key="65" src="sounds/clap.wav"></audio>
+```
 
 上一段代码中的65代表keycode，可以在[这里](http://keycode.info/)查询到它们的值。
 
 也可以使用以下代码自行查询按键对应的keycode：
 
-    window.addEventListener('keydown', (e) => {
-	    console.log(e);
-	});
+```js
+window.addEventListener('keydown', (e) => {
+    console.log(e);
+});
+```
 
 会得到一个KeyboardEvent，其中的一个属性为KeyCode: 65。通过这里的data-key将按键与音乐**绑定**。
 
@@ -36,29 +40,33 @@ CSS
 
 > [CSS3 background-size 属性](http://www.w3school.com.cn/cssref/pr_background-size.asp)
 
-    html {
-      ...
-      background-size: cover;
-    }
+```css
+html {
+  ...
+  background-size: cover;
+}
+```
 
 把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。背景图像的某些部分也许无法显示在背景定位区域中。
 
 > [Flex 布局教程：语法篇](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
 
-    .keys {
-      display: flex;
-      /*flex：1;*/
-      min-height: 100vh;
-      align-items: center;
-      justify-content: center;
-    }
-    .key {
-      flex: 1;
-      ...
-      /*width: 10rem;*/
-      transition: all .07s ease;
-      ...
-    }
+```css
+.keys {
+  display: flex;
+  /*flex：1;*/
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.key {
+  flex: 1;
+  ...
+  /*width: 10rem;*/
+  transition: all .07s ease;
+  ...
+}
+```
 
 + flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。
 
@@ -88,11 +96,13 @@ CSS
 
 结合以下代码来看
 
-    .playing {
-	    transform: scale(1.1);
-	    border-color: #ffc600;
-	    box-shadow: 0 0 1rem #ffc600;
-    }
+```css
+.playing {
+  transform: scale(1.1);
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
+}
+```
 
 按键时为该元素添加play类，产生一个动态的按键效果。整个效果由`transition: all .07s ease;`来控制。
 效果完成后还需要一个函数来移除play类。
@@ -102,20 +112,24 @@ JS
 
 通过addEventListener监视keydown事件
 
-    window.addEventListener('keydown', playSound);
+```js
+window.addEventListener('keydown', playSound);
+```
 
 playSound()函数
 
-    function playSound(e) {
-      const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-      // console.log(audio);
-      const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-      // console.log(key);
-      if (!audio) return; // stop the function
-      audio.currentTime = 0;
-      audio.play();
-      key.classList.add('playing');
-    }
+```js
+function playSound(e) {
+  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+  // console.log(audio);
+  const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+  // console.log(key);
+  if (!audio) return; // stop the function
+  audio.currentTime = 0;
+  audio.play();
+  key.classList.add('playing');
+}
+```
 
 + `const audio  = ...; `获取到按下的键对应的声音文件。
   `const key = ...;`获取到按下的键对应的元素。
@@ -130,9 +144,11 @@ playSound()函数
 
 通过addEventListener监视transitionend事件
 
-    const keys = Array.from(document.querySelectorAll('.key'));
-    // console.log(keys);
-    keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+```js
+const keys = Array.from(document.querySelectorAll('.key'));
+// console.log(keys);
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+```
 
 + `const keys = ...;`获取所有的按键元素然后从NodeList转化为数组。
 
@@ -140,13 +156,15 @@ playSound()函数
 
 removeTransition()函数；
 
-    function removeTransition(e) {
-      // console.log(e);
-      if (e.propertyName !== 'transform') return; // skip it if it's not tranform
-      // console.log(e.propertyName);
-      // console.log(this);
-      this.classList.remove('playing');
-    }
+```js
+function removeTransition(e) {
+  // console.log(e);
+  if (e.propertyName !== 'transform') return; // skip it if it's not tranform
+  // console.log(e.propertyName);
+  // console.log(this);
+  this.classList.remove('playing');
+}
+```
 
 + `if (...) return;`直接使用`console.log(e);`语句，会发现获得了一系列事件，而我们只需要关注其中的`propertyName: "transform"`。
 
