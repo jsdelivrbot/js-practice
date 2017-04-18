@@ -54,8 +54,9 @@
     //     return 1;
     //   }
     // });
-    // const sortedInventors = inventors.sort((a, b) => a.year - b.year ? 1 : -1);
+    const sortedInventorss = inventors.sort((a, b) => a.year > b.year ? 1 : -1);
     const sortedInventors = inventors.sort((a, b) => b.year - a.year);
+    console.table(sortedInventorss);
     console.table(sortedInventors);
 
     // Array.prototype.reduce()
