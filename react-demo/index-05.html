@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <script src="./docs/react.js"></script>
+  <script src="./docs/react-dom.js"></script>
+  <script src="./docs/babel.min.js"></script>
+
+</head>
+<body>
+
+
+  <div id="example"></div>
+
+  <script type="text/babel">
+    var d = new Date();
+    class MyTitle extends React.Component {
+      constructor(...args) {
+        super(...args);
+        this.state = {
+          text: 'World',
+          isClicked: false
+        };
+      }
+
+      handleClick() {
+        let isClicked = !this.state.isClicked;
+        this.setState({
+          // text: 'Clicked'
+          // text: 'Today is ' + d.getFullYear() + '年' + d.getMonth() + '月' + d.getDate() + '日'
+          // text: `Today is ${d.getFullYear()}年${d.getMonth()}月${d.getDate()}日`
+          isClicked: isClicked,
+          text: isClicked ? 'Clicked' : 'World'
+        });
+      }
+
+      render() {
+        return <h1 onClick={this.handleClick.bind(this)}>
+          {'Hello ' + this.state.text}
+        </h1>;
+      }
+    };
+
+    ReactDOM.render(
+      <MyTitle/>,
+      document.getElementById('example')
+    );
+  </script>
+
+
+</body>
+</html>
