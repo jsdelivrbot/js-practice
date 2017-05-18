@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <script src="../../docs/react.js"></script>
+  <script src="../../docs/react-dom.js"></script>
+  <script src="../../docs/babel.min.js"></script>
+</head>
+<body>
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const user = {
+      firstName: 'Harper',
+      lastName: 'Perez'
+    };
+
+    function formatName(user) {
+      return user.firstName + ' ' + user.lastName;
+    }
+
+    const element = ( // You can embed any JavaScript expression in JSX by wrapping it in curly braces.
+      <h1>
+        Hello, { formatName(user) }
+      </h1>
+    );
+
+    ReactDOM.render(
+      element,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+</html>
