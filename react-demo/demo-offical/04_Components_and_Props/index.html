@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <script src="../../docs/react.js"></script>
+  <script src="../../docs/react-dom.js"></script>
+  <script src="../../docs/babel.min.js"></script>
+</head>
+<body>
+
+  <div id="root"></div>
+  <div id="root2"></div>
+
+
+  <script type="text/babel">
+  // When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object "props".
+  // Always start component names with a capital letter.
+  // For example, <div /> represents a DOM tag, but <Welcome /> represents a component and requires Welcome to be in scope.
+  // All React components must act like pure functions with respect to their props.
+
+    // function Welcome(props) {
+    //   return <h1>Hello, {props.name}</h1>;
+    // }
+
+    // class Welcome extends React.Component {
+    //   render() {
+    //     return <h1>Hello, {this.props.name}</h1>;
+    //   }
+    // }
+
+    class Welcome extends React.Component {
+      render() {
+        return <h1 style={{color: this.props.color}}>Hello {this.props.name}, I'm {this.props.color}!</h1>;
+      }
+    }
+
+    // Components must return a single root element. This is why we added a <div> to contain all the <Welcome /> elements.
+
+    class App extends React.Component {
+      render() {
+        return (
+          <div>
+            <Welcome name="lily" color="purple" />
+            <Welcome name="yellow" color="yelow" />
+            <Welcome name="ddlddl" color="red" />
+          </div>
+        );
+      }
+    }
+
+    ReactDOM.render(
+      <App />,
+      document.getElementById('root')
+    );
+  </script>
+
+  <script type="text/babel">
+    function formatDate(date) {
+      return date.toLocaleDateString();
+    }
+
+    const comment = {
+      date: new Date(),
+      text: 'I hope you enjoy learning React!',
+      author: {
+        name: 'Hello Kitty',
+        avatarUrl: 'http://placekitten.com/g/64/64'
+      }
+    };
+
+    class Avatar extends React.Component {
+      render() {
+        return (
+          <img className="Avatar"
+            src={this.props.user.avatarUrl}
+            alt={this.props.user.name}
+          />
+        );
+      }
+    }
+
+    class UserInfo extends React.Component {
+      render() {
+        return (
+          <div className="UserInfo">
+            <Avatar user={this.props.user} />
+            <div className="UserInfo-name">{this.props.user.name}</div>
+          </div>
+        );
+      }
+    }
+
+    class Comment extends React.Component {
+      render() {
+        return (
+          <div className="Comment">
+            <UserInfo user={this.props.author} />
+            <div className="Comment-text">{this.props.text}</div>
+            <div className="Comment-date">{formatDate(this.props.date)}</div>
+          </div>
+        );
+      }
+    }
+
+    ReactDOM.render(
+      <Comment author={comment.author}
+        text={comment.text}
+        date={comment.date} />,
+      document.getElementById('root2')
+    );
+  </script>
+</body>
+</html>
