@@ -1,7 +1,7 @@
 Note
 ===
 
-> [预览效果](https://wispamulet.github.io/js30-practice/01%20-%20JavaScript%20Drum%20Kit/index.html)
+> [预览效果](https://wispamulet.github.io/js-practice/javascript30.com/01%20-%20JavaScript%20Drum%20Kit/index.html)
 
 HTML
 ---

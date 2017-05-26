@@ -1,7 +1,7 @@
 Note
 ===
 
-> [预览效果](https://wispamulet.github.io/js30-practice/02%20-%20JS%20and%20CSS%20clock/index.html)
+> [预览效果](https://wispamulet.github.io/js-practice/javascript30.com/02%20-%20JS%20and%20CSS%20clock/index.html)
 
 CSS
 ---

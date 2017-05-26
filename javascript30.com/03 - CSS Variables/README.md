@@ -1,7 +1,7 @@
 Note
 ===
 
-> [预览效果](https://wispamulet.github.io/js30-practice/03%20-%20CSS%20Variables/index.html)
+> [预览效果](https://wispamulet.github.io/js-practice/javascript30.com/03%20-%20CSS%20Variables/index.html)
 
 HTML
 ---

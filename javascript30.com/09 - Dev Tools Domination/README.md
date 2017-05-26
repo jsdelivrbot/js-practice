@@ -1,6 +1,8 @@
 Note
 ===
 
+> [预览效果](https://wispamulet.github.io/js-practice/javascript30.com/09%20-%20Dev%20Tools%20Domination/index.html)
+
 JS
 ===
 

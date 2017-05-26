@@ -1,6 +1,8 @@
 Note
 ===
 
+> [预览效果](https://wispamulet.github.io/js-practice/javascript30.com/13%20-%20Slide%20in%20on%20Scroll/index.html)
+
 CSS
 ===
 
