@@ -124,7 +124,7 @@ function handleLeave() {
 
 当鼠标移到`<li></li>`上时显示列表中额外的内容，以及显示背景色，移开时再隐藏。
 
-然而，由于同时添加了两个`class`改变了两个值，设置的`transition`属性并没有生效。为此设置一个`setTimeout()`函数。这也是为什么要分开写的原因。
+然而，由于同时将`opacity`由 0 设置为 1 和`display`由 none 设置为 block，设置的`transition`属性并没有生效。为止分开写成两个`class`，并设置了`setTimeout()`函数。
 
 注意：`setTimeout()`中的`this`指向的是`window`或`global`，需要用 ES6 的箭头函数。
 
