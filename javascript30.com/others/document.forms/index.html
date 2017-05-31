@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <form name="justAForm">
+    <input type="text" name="first" value="wes">
+    <input type="checkbox" name="toppings" value="pickles">
+    <input type="checkbox" name="toppings" value="mustart" checked>
+    <input type="checkbox" name="toppings" value="hot souce">
+    <input type="checkbox" name="toppings" value="cheese" checked>
+  </form>
+
+  <p></p>
+
+  <form name="anotherForm">
+    <input type="text" name="first" placeholder="wes">
+    <fieldset name="car" disabled>
+      <input type="text" name="car-type" placeholder="Car Type">
+      <input type="text" name="car-color" placeholder="Car Color">
+      <input type="text" name="car-year" placeholder="Car Year">
+    </fieldset>
+  </form>
+
+<script>
+  // all forms are available via their name on document.forms
+  console.log(document.forms.justAForm);
+  // if their inputs have names, they are accesible via properties on that object
+  console.log(document.forms.justAForm.first);
+  console.log(document.forms.justAForm.first.value);
+
+  // get an array of checked toppings
+  const toppings = Array
+    .from(document.forms.justAForm.toppings) // convert from RadioNodeList to Array
+    .filter(input => input.checked) // filter for checked inputs
+    .map(input => input.value) // get only the values
+
+  console.log(toppings);
+</script>
+
+</body>
+</html>
