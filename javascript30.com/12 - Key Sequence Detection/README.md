@@ -1,6 +1,8 @@
 Note
 ===
 
+> [预览效果](https://wispamulet.github.io/js-practice/javascript30.com/12%20-%20Key%20Sequence%20Detection/index.html)
+
 JS
 ===
 
@@ -44,4 +46,4 @@ if (pressed.join('').includes(secretCode)) {
 }
 ```
 
-打开页面查看`cornify_add()`做了什么，它来自头部引入的`<script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>`😍
+打开页面查看`cornify_add()`做了什么，它来自头部引入的`<script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>`😍（如果看不到效果请看 Chrome DevTool 的说明）

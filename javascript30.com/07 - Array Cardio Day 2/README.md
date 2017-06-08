@@ -1,6 +1,8 @@
 Note
 ===
 
+> [预览效果](https://wispamulet.github.io/js-practice/javascript30.com/07%20-%20Array%20Cardio%20Day%202/index.html)
+
 JS
 ===
 

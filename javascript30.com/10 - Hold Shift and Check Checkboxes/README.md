@@ -1,6 +1,10 @@
 Note
 ===
 
+> [预览效果](https://wispamulet.github.io/js-practice/javascript30.com/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/index.html)
+
+> [预览效果2](https://wispamulet.github.io/js-practice/javascript30.com/10%20-%20Hold%20Shift%20and%20Check%20Checkboxes/index2.html)
+
 CSS
 ===
 
@@ -100,3 +104,9 @@ function handleCheck(e) {
 如何没有第一次普通的`click`，也就是说没有`lastChecked`，
 
 `if (checkbox === this || checkbox === lastChecked)`中的`this`和`lastChecked`将会是同一项，`inBetween`变为`true`后将会持续到最后一项。因此，点击的那一项直到最后一项都会被选中。
+
+更好的做法：
+===
+
+Still working on it...
+
