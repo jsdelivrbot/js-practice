@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+
+  <button id="btn">打开弹窗</button>
+
+  <div id="myModel" class="model">
+
+    <div class="model-content">
+
+      <span class="close">&times;</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    </div> <!-- /.model-content -->
+  </div> <!-- /.model -->
+
+<script>
+  const model =document.querySelector('#myModel');
+  const btn = document.querySelector('#btn');
+  const close = document.querySelector('.close');
+
+  btn.addEventListener('click', e => {
+    model.style.display = 'block';
+  });
+
+  close.addEventListener('click', e => {
+    model.style.display = 'none';
+  });
+
+  window.addEventListener('click', e => {
+    if (e.target === model) {
+      console.log(e.target);
+      model.style.display = 'none';
+    }
+  })
+</script>
+
+</body>
+</html>
