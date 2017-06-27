@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+
+  <img id="my-pic" src="./docs/btotbhpudiagtmvlkyrs.jpg" alt="this is a picture" width="300" height="200">
+
+  <div id="myModel" class="model">
+
+    <span class="close">&times;</span>
+
+    <img id="img" class="model-content">
+
+    <div id="caption"></div>
+  </div>
+
+<script>
+  const model = document.querySelector('#myModel');
+  const img = document.querySelector('#my-pic');
+  const modelImg = document.querySelector('#img');
+  const caption = document.querySelector('#caption');
+
+  img.addEventListener('click', function (e) {
+    // console.log(this);
+    model.style.display = 'block';
+    modelImg.src = this.src;
+    caption.innerHTML = this.alt;
+  });
+
+  const span = document.querySelector('.close');
+
+  span.addEventListener('click', e => {
+    model.style.display = 'none';
+  })
+
+  window.addEventListener('click', e => {
+    if (e.target === model) {
+      model.style.display = 'none';
+    }
+  })
+</script>
+
+</body>
+</html>

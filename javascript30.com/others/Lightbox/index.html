@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+
+  <h2>Lightbox</h2>
+
+  <div class="row">
+
+    <div class="column">
+      <img src="./docs/demo1.jpg" class="hover-shadow cursor" alt="demo1">
+    </div>
+    <div class="column">
+      <img src="./docs/demo2.jpg" class="hover-shadow cursor" alt="demo2">
+    </div>
+    <div class="column">
+      <img src="./docs/demo3.jpg" class="hover-shadow cursor" alt="demo3">
+    </div>
+    <div class="column">
+      <img src="./docs/demo4.jpg" class="hover-shadow cursor" alt="demo4">
+    </div>
+  </div> <!-- /.row -->
+
+  <div id="myModel" class="model">
+    <span class="close cursor">&times;</span>
+
+    <div class="model-content">
+
+      <div class="myslides">
+        <div class="num">1 / 4</div>
+        <img src="./docs/demo1.jpg" alt="demo1">
+      </div>
+      <div class="myslides">
+        <div class="num">2 / 4</div>
+        <img src="./docs/demo2.jpg" alt="demo2">
+      </div>
+      <div class="myslides">
+        <div class="num">3 / 4</div>
+        <img src="./docs/demo3.jpg" alt="demo3">
+      </div>
+      <div class="myslides">
+        <div class="num">4 / 4</div>
+        <img src="./docs/demo4.jpg" alt="demo4">
+      </div>
+
+      <a class="prev">&#10094;</a>
+      <a class="next">&#10095;</a>
+
+      <div class="caption-container">
+        <p id="caption"></p>
+      </div>
+
+      <div class="column">
+        <img src="./docs/demo1.jpg" alt="Nature and sunrise" class="demo cursor">
+      </div>
+      <div class="column">
+        <img src="./docs/demo2.jpg" alt="Trolltunga, Norway" class="demo cursor">
+      </div>
+      <div class="column">
+        <img src="./docs/demo3.jpg" alt="Mountains and fjords" class="demo cursor">
+      </div>
+      <div class="column">
+        <img src="./docs/demo4.jpg" alt="Northern Lights" class="demo cursor">
+      </div>
+
+    </div> <!-- /.model-content -->
+  </div> <!-- /.model -->
+
+</body>
+</html>

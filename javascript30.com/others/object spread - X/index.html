@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+<script>
+  const countryCodes = {
+    US: 'United States',
+    CA: 'Canada',
+    NG: 'Nigeria',
+    GB: 'United Kingdom'
+  };
+
+  const sales = [
+    { code: 'US', count: 233 },
+    { code: 'CA', count: 200 },
+    { code: 'GB', count: 150 },
+    { code: 'NG', count: 111 }
+  ];
+
+  const salesMix = sales.map(sale => ({ ...sale, country: countryCodes[sale.code] }));
+
+  console.table(salesMix);
+</script>
+
+</body>
+</html>
