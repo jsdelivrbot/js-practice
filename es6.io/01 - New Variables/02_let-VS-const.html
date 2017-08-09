@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>02 - let VS const</title>
+</head>
+<body>
+<script>
+// let: inside of the scope where the variable's declared, you can only ever do that once
+let points = 50;
+
+// let points = 60; // 'points' has already been declared
+
+// points = 60; // can be updated
+
+let winner = true; // scoped to window
+if (points > 40) {
+  console.log('it ran!');
+  let winner = false; // not updated
+                      // scoped to the block
+                      // because they are two different variables although they have the same name
+}
+
+// const variables can not be updated, let variables are made to be updated
+const key = 'abc123';
+// key = 'abc456'; // error, assignment to constant variable
+
+// The properties of a const variable can be changed
+const person = {
+  name: 'wes',
+  age: 28
+};
+
+// The entire object is not immutabled, it's just can not be reassigned
+person = {
+  age: 30 // error, assignment to constant variable
+};
+
+person.age = 30; // that works
+
+const wes = Object.freeze(person); // freeze the object
+
+</script>
+</body>
+</html>

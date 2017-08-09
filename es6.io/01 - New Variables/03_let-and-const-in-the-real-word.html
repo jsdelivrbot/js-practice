@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>03 - let and const in the real word</title>
+</head>
+<body>
+<script>
+// 1.Immediately-Invoked Function Expression (IIFE)
+// It is a function that runs itself immediately and it sort of creates a scope where nothing is going to leak into its parent scope
+
+var name = 'wes'; // it's available in the global scope
+
+(function() {
+  var name = 'wes'; // now scoped to this function, not available in the global scope
+})();
+
+{
+  const name2 = 'wes'; // scope to the block
+  console.log(name2);
+}
+
+// 2.in for loop
+for (var i = 0; i < 10; i++) {
+  setTimeout(function() {
+    console.log('The number is ' + i); // The number is 10
+  }, 1000);
+}
+
+for (let i = 0; i < 10; i++) { // let variable is block scoped, it will be declared each and every time
+  setTimeout(function() {
+    console.log('The number is ' + i); // The number is 0, 1, 2, ... 9
+  }, 1000);
+}
+</script>
+</body>
+</html>

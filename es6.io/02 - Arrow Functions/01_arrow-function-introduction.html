@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>01 - Arrow function introdunction</title>
+</head>
+<body>
+<script>
+// 1.They are much more concise than regular functions
+// 2.They have implicit returns, which allows us to write these nifty one-liners
+// 3.It doesn't reblind the value of this when you use a arrow function inside of another function
+
+const names = ['wes', 'kait', 'lux'];
+
+const fullNames = names.map(function(name) {
+  return `${name} bos`;
+});
+
+const fullNames2 = names.map((name) => {
+  return `${name} bos`;
+});
+
+const fullNames3 = names.map(name => {
+  return `${name} bos`;
+});
+
+const fullNames4 = names.map(name => `${name} bos`);
+
+const fullNames5 = names.map(() => `Cool bos`);
+
+console.log(fullNames5);
+
+// arrow functions are always anonymous functions
+
+function sayMayName(name) { // name function
+  alert(`Hello, My name is ${name}`);
+}
+sayMayName('wes');
+
+const sayMayName2 = (name) => { // anonymous function
+  alert(`Hello, My name is ${name}`);
+}
+sayMayName2('weeees');
+</script>
+</body>
+</html>

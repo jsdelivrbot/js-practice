@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>04 - Temporal dead zone</title>
+</head>
+<body>
+<script>
+// 1.With var variables,
+// you can actually access them as they are defined before they are defined,
+// you can not access the actual value of them
+
+console.log(pizza); // undefined
+var pizza = 'Deep dish🍕🍕🍕';
+
+// 2.
+console.log(pizza2); // the variable is not defined
+const pizza = 'Deep dish🍕🍕🍕';
+</script>
+</body>
+</html>
