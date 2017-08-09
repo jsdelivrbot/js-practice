@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>02 - More arrow function examples</title>
+</head>
+<body>
+<script>
+const race = '100m Dash';
+const winners = ['Hunter Gath', 'Singa Song', 'Imda Bos'];
+
+// 1.An example of doing an implicit return with an object literal
+
+/*
+想要得到如下格式的数据：
+{
+  name: 'wes bos',
+  race: race,
+  place: 1
+}
+
+箭头函数后如果使用 {}，指得是 function scope
+没有 {}，指得是返回值(implicit return)
+const win = winners.map((winner, i) => name: winner, race: race, place: i); // error
+const win = winners.map((winner, i) => { name: winner, race: race, place: i }); // error
+
+想要返回的是一个对象，本身包含 {}，直接写会误以为是 function scope，因此有以下两种写法：
+*/
+
+const win = winners.map((winner, i) => ({ name: winner, race: race, place: i + 1 }));
+// const win = winners.map((winner, i) => {return { name: winner, race: race, place: i + 1 }});
+
+console.table(win);
+
+/*
+The variable race and the property name race is all named race, you can just use race
+race: race => race
+
+const win = winners.map((winner, i) => ({ name: winner, race, place: i + 1 }));
+*/
+
+// 2.
+const ages = [12, 34, 70, 41, 81, 100, 7, 28];
+
+/* const old = ages.filter(age => {
+  if (age >= 60) {
+    return true;
+  }
+}); */
+
+const old = ages.filter(age => age >= 60);
+
+console.log(old);
+
+
+</script>
+</body>
+</html>
