@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>02 - Creating HTML fragments with template literals</title>
+</head>
+<body>
+<script>
+  const person = {
+    name: 'Wes',
+    job: 'Web Developer',
+    city: 'Hamilton',
+    bio: 'Wes is a really cool guy!!!'
+  };
+
+  // ...
+  var text = "Hello there. \
+  It's me! \
+  ";
+
+  // HTML fragment
+  const markup = `
+    <div className="person">
+      <h2>
+        ${person.name}
+        <span class="job">${person.job}</span>
+      </h2>
+      <p class="location">${person.city}</p>
+      <p class="bio">${person.bio}</p>
+    </div>
+  `;
+
+  console.log(markup);
+
+  document.body.innerHTML = markup;
+</script>
+
+<script>
+  const dogs = [
+    { name: 'Snickers', age: 2 },
+    { name: 'Hugo', age: 7 },
+    { name: 'Sunny', age: 1 }
+  ];
+
+  const markup2 = `
+    <ul class="dogs">
+      ${dogs.map(dog => `<li>${dog.name} is ${dog.age} years old.</li>`).join('')}
+    </ul>
+  `;
+
+  const div2 = document.createElement('div');
+  div2.innerHTML = markup2;
+  document.body.appendChild(div2);
+</script>
+
+<script>
+  // if statement
+  const song = {
+    name: 'Dying to live',
+    artist: 'Tupac',
+    Featuring: 'Biggie Smalls'
+  };
+
+  const markup3 = `
+    <p>
+      ${song.name} - ${song.artist}
+      ${song.Featuring ? `(Featuring: ${song.Featuring})` : ''}
+    </p>
+  `;
+
+  const div3 = document.createElement('div');
+  div3.innerHTML = markup3;
+  document.body.appendChild(div3);
+</script>
+
+<script>
+  const beers = {
+    name: 'Belgian Wit',
+    brewery: 'Steam Whistle Brewery',
+    keywords: ['pale', 'cloudy', 'spiced', 'crisp']
+  };
+
+  function renderKeywords(keywords) {
+    return `
+      <ul>
+        ${keywords.map(keyword => `<li>${keyword}</li>`).join('')}
+      </ul>
+    `;
+  }
+
+  const markup4 = `
+    <div className="bear">
+      <h2>${beers.name}</h2>
+      <p className="brewery">${beers.brewery}</p>
+      ${renderKeywords(beers.keywords)}
+    </div>
+  `;
+
+  const div4 = document.createElement('div');
+  div4.innerHTML = markup4;
+  document.body.appendChild(div4);
+</script>
+
+</body>
+</html>
