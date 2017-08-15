@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>02 - Destructuring arrays</title>
+</head>
+<body>
+<script>
+const details = ['Wes Bos', 123, 'wesbos.com'];
+
+// const name = details[0];
+// const id = details[1];
+const [name, id, website] = details;
+
+
+const data = 'Basketball,sports,90210,233';
+
+const [itemName, category, sku, inventory] = data.split(',');
+
+
+const team = ['Wes', 'Harry', 'Sarah', 'Keegan', 'Riker'];
+
+const [captain, assistant, ...players] = team;
+
+</script>
+</body>
+</html>
