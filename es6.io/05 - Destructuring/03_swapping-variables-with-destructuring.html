@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>03 - Swapping variables with destructuring</title>
+</head>
+<body>
+<script>
+  let inRing = 'Hulk Hogan';
+  let OnSide = 'The Rock';
+
+  // var tmp = inRing;
+  // inRing = OnSide;
+  // OnSide = tmp;
+
+  console.log(inRing, OnSide);
+  [inRing, OnSide] = [OnSide, inRing];
+  console.log(inRing, OnSide);
+</script>
+</body>
+</html>
