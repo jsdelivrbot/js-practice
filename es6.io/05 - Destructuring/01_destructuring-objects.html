@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>01 - Destructuring objects</title>
+</head>
+<body>
+<script>
+  const person = {
+    first: 'Wes',
+    last: 'Bos',
+    country: 'Canada',
+    city: 'Hamilton',
+    twitter: '@wesbos'
+  };
+
+  // const first = person.first;
+  // const last = person.last;
+  // ...
+
+  // use destructuring syntax
+  const { first, last, twitter } = person;
+
+
+  const wes = {
+    first: 'Wes',
+    last: 'Bos',
+    links: {
+      social: {
+        twitter2: 'https://twitter.com/wesbos',
+        facebook: 'https://facebook.com/wesbos.developer',
+      },
+      web: {
+        blog: 'https://wesbos.com'
+      }
+    }
+  };
+
+  // const twitter2 = wes.links.social.twitter2;
+  // const facebook = wes.links.social.facebook;
+
+  // use destructuring syntax
+  const { twitter2, facebook } = wes.links.social;
+  // rename the variables
+  const { twitter2: tweet, facebook: fb } = wes.links.social;
+
+
+  const settings = { width: 300, color: 'black' };
+  // with default values
+  const { width = 100, height = 100, color = 'red', fontSize = 20 } = settings;
+
+
+  // Object Destructuring with variable renaming & default values
+  const { w: width2 = 500, h: height2 = 500 } = { w: 1000 }; // width2: 1000, height2: 500
+
+</script>
+</body>
+</html>
