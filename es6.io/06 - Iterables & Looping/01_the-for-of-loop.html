@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>01 - The for of loop</title>
+</head>
+<body>
+<script>
+/* eslint-disable */
+Array.prototype.shuffle = function() {
+    var i = this.length, j, temp;
+    if ( i == 0 ) return this;
+    while ( --i ) {
+    j = Math.floor( Math.random() * ( i + 1 ) );
+    temp = this[i];
+    this[i] = this[j];
+    this[j] = temp;
+  }
+  return this;
+};
+
+
+// What is an iterable? An interable is anything that can be looped over
+// array, string, map, set, generator
+// a DOM collection, argument
+
+const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
+
+cuts.shop = 'MM meat';
+
+// for (let i = 0; i < cuts.length; i++) {
+//   console.log(cuts[i]);
+// }
+
+// cuts.forEach((cut) => {
+//   console.log(cut);
+// });
+
+// for (const i in cuts) {
+//   console.log(cuts[i]);
+// }
+
+
+for (const cut of cuts) {
+  if (cut === 'Shank') {
+    break;
+    // continue;
+  }
+  console.log(cut);
+}
+</script>
+</body>
+</html>
